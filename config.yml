@@ -1,0 +1,85 @@
+easybook:
+    parameters:
+        parser.options:
+            code_block_type: fenced
+
+book:
+    title:            Clean PHP
+    author:           Xun Zhou
+    edition:          First edition
+    language:         en
+    publication_date: ~
+
+    generator: { name: easybook, version: 5.0 }
+
+    contents:
+        - { element: cover }
+        - { element: toc   }
+        - { element: chapter,  number: 1,  content: 01-what-is-clean-code.md }
+        - { element: chapter,  number: 2,  content: 02-essential-guidlines.md }
+        - { element: appendix, number: A,  content: A-clean-code-reference.md }
+
+    editions:
+        kindle:
+            extends:         ebook
+            format:          mobi
+
+        ebook:
+            format:          epub
+            include_styles:  true
+            highlight_cache: true
+            highlight_code:  false
+            labels:          ['appendix', 'chapter', 'figure']
+            theme:           clean
+            toc:
+                deep:        1
+                elements:    ["appendix", "chapter"]
+
+        print:
+            format:          pdf
+            highlight_cache: true
+            highlight_code:  true
+            isbn:            ~
+            include_styles:  true
+            labels:          ['appendix', 'chapter', 'figure']
+            margin:
+                top:         25mm
+                bottom:      25mm
+                inner:       30mm
+                outer:       20mm
+            page_size:       A4
+            theme:           clean
+            toc:
+                deep:        2
+                elements:    ["appendix", "chapter"]
+            two_sided:       true
+
+        web:
+            format:          html
+            include_styles:  true
+            highlight_cache: true
+            highlight_code:  true
+            labels:          ['appendix', 'chapter', 'figure']
+            theme:           clean
+            toc:
+                deep:        3
+                elements:    ["appendix", "chapter"]
+
+        website:
+            extends:         web
+            format:          html_chunked
+            chunk_level:     1
+            images_base_dir: /img/doc-en/
+
+        easybook-project.org:
+            format:          html_chunked
+            chunk_level:     2
+            images_base_dir: /images/doc-en/
+            include_styles:  false
+            highlight_cache: false
+            highlight_code:  true
+            labels:          ['appendix', 'chapter', 'figure']
+            theme:           clean
+            toc:
+                deep:        2
+                elements:    ["appendix", "chapter"]
